@@ -7,7 +7,7 @@ var parser = require('tap-parser'),
 var runner = spawn(argv[2], argv.slice(3));
 
 var p = parser(function(results) {
-    runner.kill();
+    runner.kill('SIGKILL');
     if (results.ok) {
         process.exit(0);
     } else {
